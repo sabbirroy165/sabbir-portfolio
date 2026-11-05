@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Perovskite Solar Systems in Bangladesh · Sabbir Mahmud</title>
-<meta name="description" content="Final year project: commercialization of perovskite-based solar systems in Bangladesh, with interactive simulations.">
+<meta name="description" content="Final year project: design of a roll-to-roll manufacturing facility for flexible perovskite solar modules in Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root{
   --bg:#040707; --surface:#0A1514; --line:#17332F; --text:#EAF7F5; --muted:#8FB5B0;
@@ -21,7 +20,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.7 var(--body);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
@@ -36,35 +35,54 @@ nav a:hover{color:var(--text);border-color:var(--teal)}
 .tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:2px 12px;margin-bottom:16px}
 h1{font:800 clamp(1.9rem,4.6vw,3rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 14px;max-width:20em}
 .subt{font:500 1.2rem/1.4 var(--display);color:var(--teal);margin:0 0 18px;max-width:32em}
-.abs{max-width:42em;color:var(--muted);margin:0 0 22px}
+.auth{color:var(--muted);font-size:.95rem;margin:0 0 18px;max-width:42em}
 .back{display:inline-block;color:var(--muted);text-decoration:none;font-weight:500}
 .back:hover{color:var(--teal)}
-section{padding:52px 0;border-top:1px solid var(--line)}
-h2{font:800 1.9rem/1.15 var(--display);margin:0 0 8px;letter-spacing:-.015em}
-.sub{color:var(--muted);margin:0 0 26px;max-width:40em}
-.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 1.9rem/1.15 var(--display);margin:0 0 10px;letter-spacing:-.015em}
+h3{font:700 1.2rem/1.3 var(--display);margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 26px;max-width:42em}
+p{margin:0 0 14px}
+.prose{max-width:44em}
+.prose h3{margin-top:22px;color:var(--teal)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.metric b{display:block;font:800 1.9rem/1.1 var(--display);color:var(--teal)}
+.metric span{color:var(--muted);font-size:.92rem}
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:14px}
+.steps>li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps>li::before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--teal);color:var(--on);display:grid;place-items:center;font:800 1rem var(--display)}
+.steps h3{margin:0 0 2px}
+.steps p{margin:0;color:var(--muted);font-size:.98rem}
+.flow{list-style:none;counter-reset:f;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flow li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.93rem;font-weight:500}
+.flow li::before{content:counter(f);display:block;color:var(--teal);font:800 1.2rem var(--display)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:12px 0 26px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card p{margin:0;color:var(--muted);font-size:.96rem}
+.card h3{color:var(--teal)}
+figure{margin:28px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+figure a{display:block}
 figure img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;background:var(--bg)}
-figcaption{padding:14px 16px;font-size:.92rem;color:var(--muted)}
+figcaption{padding:16px 20px;color:var(--muted);font-size:.97rem}
 figcaption b{color:var(--text)}
-.sim{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:22px}
-.sim h3{font:700 1.3rem var(--display);margin:0 0 4px}
-.sim>p{margin:0 0 18px;color:var(--muted);font-size:.97rem}
-.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 28px;margin-bottom:16px}
-.ctl label{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:.93rem;margin-bottom:2px}
-.ctl label span{color:var(--teal)}
-input[type=range]{width:100%;accent-color:var(--teal);height:28px;margin:0}
-select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:500 .95rem var(--body)}
-.out{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:140px}
-.stat small{display:block;color:var(--muted);font-size:.82rem}
-.stat b{font:800 1.4rem var(--display);color:var(--teal)}
-.chartbox{position:relative;height:300px}
-.note{margin:14px 0 0;color:var(--muted);font-size:.85rem}
-.be{margin:14px 0 0;font:700 1.15rem var(--display)}
-.be span{color:var(--teal)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:14px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface);color:var(--teal);font-weight:600}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.est{display:inline-block;font-size:.75rem;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px;margin-left:8px;vertical-align:middle}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:18px 0}
+summary{cursor:pointer;font-weight:600}
+details .tw{margin-top:14px}
+.note{color:var(--muted);font-size:.9rem}
+ul.pts{margin:0;padding-left:1.2em;max-width:44em}
+ul.pts li{margin-bottom:10px}
+ul.pts b{color:var(--teal)}
 footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-@media (max-width:860px){.figs{grid-template-columns:1fr}.hero{padding-top:40px}}
+@media (max-width:860px){.metrics,.flow{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}.hero{padding-top:40px}}
+@media (max-width:480px){.metrics,.flow{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -74,8 +92,11 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);f
     <a class="brand" href="index.html">Sabbir Mahmud</a>
     <nav aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="#figures">Figures</a>
-      <a href="#sims">Simulations</a>
+      <a href="#overview">Overview</a>
+      <a href="#approach">Approach</a>
+      <a href="#process">Process</a>
+      <a href="#materials">Materials</a>
+      <a href="#feasibility">Feasibility</a>
       <button id="theme" type="button" aria-label="Switch between dark and light theme">Light</button>
     </nav>
   </div>
@@ -87,60 +108,155 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);f
       <span class="tag">Final year project</span>
       <h1>Commercialization of Perovskite-Based Solar Systems in Bangladesh: A Circular Economical Approach</h1>
       <p class="subt">A Techno-Economic &amp; Materials Engineering Study for Scalable Roll-to-Roll (R2R) Manufacturing</p>
-      <p class="abs">Perovskite solar cells now achieve efficiencies above 30%, but turning laboratory results into affordable modules depends on low-temperature processing that suits roll-to-roll manufacturing. This study combines materials characterisation, process design, and a techno-economic analysis, using a circular economy approach to assess how the technology could scale in Bangladesh.</p>
+      <p class="auth">Exam Roll: 2325429 | Reg No: 2020-315-953 | Session 2020-21 | Dept. of Applied Chemistry &amp; Chemical Engineering, University of Dhaka</p>
       <a class="back" href="index.html">← Back to portfolio</a>
     </div>
   </div>
 
-  <section id="figures">
+  <section id="overview">
     <div class="wrap">
-      <h2>Project figures</h2>
-      <p class="sub">Key results from the study.</p>
-      <div class="figs">
-        <!-- Replace each placehold.co link with your own image, e.g. src="figures/figure1.png" -->
-        <figure><img src="Structural.png" alt="Figure 1 placeholder" loading="lazy"><figcaption><b>Figure 1:</b> Structural and morphological validation of FAPbI3 and MAPbI3 using SEM and XRD to ensure phase purity.</figcaption></figure>
-        <figure><img src="Process.png" alt="Figure 2 placeholder" loading="lazy"><figcaption><b>Figure 2:</b> Roll-to-Roll (R2R) process flow diagram for scalable manufacturing of flexible perovskite modules.</figcaption></figure>
+      <h2>Project overview</h2>
+      <div class="prose">
+        <h3>The context</h3>
+        <p>Bangladesh relies on fossil fuels for about 97% of its electricity, which creates serious energy security risks and environmental strain. Solar energy is a viable alternative, but traditional silicon panels are heavy, rigid, and expensive to import. Flexible perovskite solar cells (PSCs) offer a high-efficiency (above 30%), low-cost alternative that can be made at low temperatures, but challenges in stability, scalability, and environmental safety must be addressed.</p>
+        <h3>The engineering solution</h3>
+        <p>This project designs a 10 MW/year roll-to-roll (R2R) manufacturing facility. R2R enables continuous, high-throughput fabrication on flexible PET/ITO substrates at temperatures below 150°C, which sharply reduces manufacturing cost compared with silicon. The design uses slot-die coating, inline drying, and advanced encapsulation to support scalability and product lifetime.</p>
+        <h3>The impact</h3>
+        <p>The design applies circular economy principles, such as recovering 80–90% of solvent vapours (DMF/DMSO) and recycling PET/ITO trim waste. It supports Bangladesh’s Vision 2041 renewable energy goals and could create skilled engineering jobs.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>10 MW</b><span>Designed annual production capacity</span></div>
+        <div class="metric"><b>&lt;150°C</b><span>Process temperature on flexible PET/ITO</span></div>
+        <div class="metric"><b>80–90%</b><span>Solvent recovery rate (design target)</span></div>
+        <div class="metric"><b>~3 days</b><span>Energy payback time (estimated)</span></div>
       </div>
     </div>
   </section>
 
-  <section id="sims">
+  <section id="approach">
     <div class="wrap">
-      <h2>Interactive simulations</h2>
-      <p class="sub">Three simplified models from the study. Move the controls to see how the results change.</p>
+      <h2>How the study was approached</h2>
+      <p class="sub">The work moved from the problem, to the materials, to the process, and finally to feasibility.</p>
+      <ol class="steps">
+        <li><div><h3>Frame the problem</h3><p>Established why Bangladesh needs a low-cost, flexible solar technology, and which barriers (stability, scalability, environmental safety) a manufacturing design must solve.</p></div></li>
+        <li><div><h3>Select and verify the materials</h3><p>Chose every layer for low-temperature R2R processing and environmental stability, and validated the FAPbI<sub>3</sub> and MAPbI<sub>3</sub> perovskites with SEM and XRD for phase purity and grain morphology.</p></div></li>
+        <li><div><h3>Design and control the process</h3><p>Arranged the line as a continuous sequence of coating, drying, and lamination steps, and defined the PLC and SCADA control parameters that protect film quality.</p></div></li>
+        <li><div><h3>Test feasibility and circularity</h3><p>Estimated cost, energy payback, and material localization, and built solvent recovery and waste recycling into the plant design. These figures are estimates rather than measured results.</p></div></li>
+      </ol>
+    </div>
+  </section>
 
-      <div class="sim">
-        <h3>A. Bandgap tuning and the Shockley–Queisser limit</h3>
-        <p>Adding bromide widens the bandgap of the perovskite. The curve shows the theoretical efficiency limit at each bandgap.</p>
-        <div class="ctl"><div><label for="x">Bromide (Br) concentration <span id="xv"></span></label><input id="x" type="range" min="0" max="1" step="0.01" value="0.2"></div></div>
-        <div class="out"><div class="stat"><small>Bandgap, Eg</small><b id="eg"></b></div><div class="stat"><small>SQ limit efficiency</small><b id="pce"></b></div></div>
-        <div class="chartbox"><canvas id="cA" role="img" aria-label="Shockley-Queisser efficiency limit against bandgap"></canvas></div>
-        <p class="note">Simplified model: Eg = 1.55 + 0.75x, and a parabolic approximation of the SQ limit with a peak near 1.34 eV.</p>
+  <section id="process">
+    <div class="wrap">
+      <h2>Process engineering and control</h2>
+      <p class="sub">The manufacturing line runs continuously through eight stages.</p>
+      <ol class="flow">
+        <li>Substrate unwinding and cleaning (UV-ozone)</li>
+        <li>Transparent conductive oxide (TCO) deposition</li>
+        <li>Electron transport layer (ETL) coating</li>
+        <li>Perovskite layer deposition (slot-die)</li>
+        <li>Hole transport layer (HTL) coating</li>
+        <li>Top electrode deposition</li>
+        <li>Encapsulation (lamination)</li>
+        <li>Testing, quality control, and packaging</li>
+      </ol>
+      <figure>
+        <!-- Replace the placehold.co link with your own image, e.g. src="figures/figure1.png" -->
+        <a href="https://placehold.co/1600x800?text=Figure+1" target="_blank" rel="noopener"><img src="https://placehold.co/1600x800?text=Figure+1" alt="Figure 1: R2R process flow diagram (placeholder)" loading="lazy"></a>
+        <figcaption><b>Figure 1:</b> Roll-to-Roll (R2R) process flow diagram integrating slot-die coating, annealing, and closed-loop solvent recovery systems for continuous production.</figcaption>
+      </figure>
+
+      <h3 style="margin-top:34px">PLC and SCADA process control</h3>
+      <p class="sub" style="margin-bottom:0">Programmable logic controllers provide real-time automation to keep yield high and films uniform.</p>
+      <div class="cards">
+        <div class="card"><h3>Web tension</h3><p>Maintained within ±0.5 N to prevent wrinkling or micro-cracking of the flexible substrate.</p></div>
+        <div class="card"><h3>Coating thickness</h3><p>Monitored in real time by laser micrometers, with an accuracy of ±50 nm.</p></div>
+        <div class="card"><h3>Thermal control</h3><p>PID loops regulate the annealing and drying zones between 80 and 150°C to prevent phase degradation.</p></div>
+        <div class="card"><h3>Alignment</h3><p>Optical sensors keep deviation below 0.2 mm during multilayer coating.</p></div>
       </div>
+      <figure>
+        <a href="https://placehold.co/1600x800?text=Figure+4" target="_blank" rel="noopener"><img src="https://placehold.co/1600x800?text=Figure+4" alt="Figure 4: Proposed facility layout (placeholder)" loading="lazy"></a>
+        <figcaption><b>Figure 4:</b> Proposed 10 MW/year facility layout including production zones, inline QC labs, solvent recovery units, and cleanroom infrastructure.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-      <div class="sim">
-        <h3>B. Encapsulation and degradation</h3>
-        <p>A better moisture barrier keeps the efficiency higher for longer.</p>
-        <div class="ctl">
-          <div><label for="enc">Encapsulant</label><select id="enc"><option value="0.01">EVA</option><option value="0.0001">POE</option><option value="0.000001" selected>PIB</option></select></div>
-          <div><label for="rh">Relative humidity <span id="rhv"></span></label><input id="rh" type="range" min="20" max="85" step="1" value="60"></div>
+  <section id="materials">
+    <div class="wrap">
+      <h2>Materials selection and characterization</h2>
+      <div class="prose">
+        <p>The optoelectronic properties of the ABX<sub>3</sub> crystal structure, specifically FAPbI<sub>3</sub> and MAPbI<sub>3</sub>, allow tunable bandgaps, high absorption coefficients, and long carrier diffusion lengths. Each material in the device stack was chosen for low-temperature R2R processing and environmental stability.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Component</th><th>Selected material</th><th>Engineering justification</th></tr></thead>
+          <tbody>
+            <tr><td>Substrate</td><td>PET/ITO</td><td>Cost-effective, highly flexible, and compatible with roll-to-roll processing.</td></tr>
+            <tr><td>Electron transport layer</td><td>SnO<sub>2</sub> nanoparticles</td><td>High electron mobility; processable at low temperatures (below 120°C).</td></tr>
+            <tr><td>Hole transport layer</td><td>PEDOT:PSS or NiOx</td><td>Cost-effective aqueous processing; NiOx is a stable inorganic alternative.</td></tr>
+            <tr><td>Encapsulation</td><td>PIB + POE barrier film</td><td>Ultra-low water vapour transmission rate (WVTR below 10<sup>−6</sup> g/m²/day); critical for tropical climates.</td></tr>
+            <tr><td>Top electrode</td><td>Carbon paste or Ag ink</td><td>Carbon is low-cost and chemically stable; silver ink offers high conductivity.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <a href="https://placehold.co/1600x800?text=Figure+2" target="_blank" rel="noopener"><img src="https://placehold.co/1600x800?text=Figure+2" alt="Figure 2: SEM and XRD analysis (placeholder)" loading="lazy"></a>
+        <figcaption><b>Figure 2:</b> SEM and XRD analysis of FAPbI<sub>3</sub> and MAPbI<sub>3</sub> perovskite powders, confirming high phase purity and uniform grain morphology essential for scalable coating.</figcaption>
+      </figure>
+      <figure>
+        <a href="https://placehold.co/1600x800?text=Figure+3" target="_blank" rel="noopener"><img src="https://placehold.co/1600x800?text=Figure+3" alt="Figure 3: Encapsulation strategy (placeholder)" loading="lazy"></a>
+        <figcaption><b>Figure 3:</b> Encapsulation strategy using PIB/POE barrier films to prevent moisture ingress in high-humidity environments.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="feasibility">
+    <div class="wrap">
+      <h2>Feasibility and localization</h2>
+      <div class="prose">
+        <p>A financial model was developed for a 10 MW/year facility in Bangladesh, based on estimated capital cost, working capital, and operating cost. The values are projections and depend on assumptions, so they indicate scale rather than exact outcomes. The localization outlook below is more practical for the study, because it shows how the supply chain could be built within five years.</p>
+      </div>
+      <details>
+        <summary>View the estimated financial summary</summary>
+        <div class="tw">
+          <table>
+            <thead><tr><th>Metric</th><th>Estimated value</th></tr></thead>
+            <tbody>
+              <tr><td>Total initial investment</td><td>$13.0 million (CAPEX $11M + working capital $2M)</td></tr>
+              <tr><td>Operating cost</td><td>$4.25 million per year</td></tr>
+              <tr><td>Break-even point</td><td>About 4.8 years</td></tr>
+              <tr><td>Net present value (15% discount rate)</td><td>About $4.2 million</td></tr>
+              <tr><td>Internal rate of return</td><td>18–19%</td></tr>
+              <tr><td>Energy payback time</td><td>About 3 days</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="out"><div class="stat"><small>Degradation constant, k</small><b id="kv"></b></div><div class="stat"><small>Efficiency after 1000 h</small><b id="e1000"></b></div></div>
-        <div class="chartbox"><canvas id="cB" role="img" aria-label="Efficiency over 1000 hours for the chosen encapsulant"></canvas></div>
-        <p class="note">Model: k = WVTR × (RH/100) × 1000, and efficiency(t) = 20 × exp(−k·t).</p>
+        <p class="note">All values are estimates from the study’s model.</p>
+      </details>
+      <h3 style="margin-top:26px">Material localization potential (5-year outlook)</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Material category</th><th>Potential</th><th>Strategy</th></tr></thead>
+          <tbody>
+            <tr><td>Solvents and additives</td><td>High</td><td>Use Bangladesh’s established pharmaceutical sector.</td></tr>
+            <tr><td>Substrates (PET/PEN)</td><td>High</td><td>Local plastics manufacturing plus imported ITO coating.</td></tr>
+            <tr><td>Glass and encapsulants</td><td>Very high</td><td>Available from domestic glass and polymer manufacturers.</td></tr>
+            <tr><td>Inorganic precursors</td><td>Medium</td><td>Set up local purification units for PbI<sub>2</sub> and FAI.</td></tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </section>
 
-      <div class="sim">
-        <h3>C. Techno-economic break-even calculator</h3>
-        <p>A 10-year projection for a perovskite module factory, with a starting investment of $11 million.</p>
-        <div class="ctl">
-          <div><label for="mw">Initial production <span id="mwv"></span></label><input id="mw" type="range" min="5" max="20" step="1" value="10"></div>
-          <div><label for="pr">Initial selling price <span id="prv"></span></label><input id="pr" type="range" min="0.40" max="0.60" step="0.01" value="0.50"></div>
-          <div><label for="es">Annual OPEX escalation <span id="esv"></span></label><input id="es" type="range" min="1" max="5" step="0.5" value="3"></div>
-        </div>
-        <div class="chartbox"><canvas id="cC" role="img" aria-label="Cumulative cash flow and revenue over ten years"></canvas></div>
-        <p class="be" id="be" aria-live="polite"></p>
-      </div>
+  <section id="circular">
+    <div class="wrap">
+      <h2>Circular economy and sustainability</h2>
+      <p class="sub">The facility is designed to reduce environmental impact and use resources efficiently.</p>
+      <ul class="pts">
+        <li><b>Solvent recovery:</b> a membrane distillation system captures and purifies 80–90% of DMF and DMSO vapours, which cuts VOC emissions and raw material cost.</li>
+        <li><b>Waste recycling:</b> PET/ITO trim waste is mechanically recycled, and spent sputtering targets (ITO/AZO) are reclaimed for their valuable metal content.</li>
+        <li><b>Safety and compliance:</b> ISO 14001 and local DoE regulations guide lead (Pb) handling, with impermeable flooring and stabilization of sludge for safe disposal.</li>
+      </ul>
     </div>
   </section>
 </main>
@@ -148,84 +264,16 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);f
 <footer><div class="wrap">© 2026 Sabbir Mahmud</div></footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  var $=function(i){return document.getElementById(i);};
-  var root=document.documentElement,tb=$('theme'),ch={};
-  function css(v){return getComputedStyle(root).getPropertyValue(v).trim();}
-
-  /* Shared chart options, coloured from the current theme */
-  function opts(xt,yt,x,y,yfmt){
-    var tx=css('--muted'),gr=css('--line');
-    function ax(t,r,f){return {type:'linear',min:r[0],max:r[1],title:{display:true,text:t,color:tx},ticks:{color:tx,callback:f},grid:{color:gr}};}
-    var xo=ax(xt,x),yo=ax(yt,y,yfmt);if(x[2])xo.ticks.stepSize=x[2];
-    return {responsive:true,maintainAspectRatio:false,animation:false,interaction:{mode:'nearest',intersect:false},
-      plugins:{legend:{labels:{color:tx}}},scales:{x:xo,y:yo}};
-  }
-
-  /* ---- A: Bandgap tuning and SQ limit ---- */
-  function eg(x){return 1.55+x*0.75;}
-  function pce(e){return Math.max(0,33.7-15*Math.pow(e-1.34,2));}
-  function upA(){
-    var x=+$('x').value,e=eg(x),p=pce(e);
-    $('xv').textContent='x = '+x.toFixed(2);$('eg').textContent=e.toFixed(2)+' eV';$('pce').textContent=p.toFixed(1)+' %';
-    if(ch.a){ch.a.data.datasets[1].data=[{x:e,y:p}];ch.a.update('none');}
-  }
-  /* ---- B: Encapsulation and degradation ---- */
-  function kOf(){return (+$('enc').value)*(+$('rh').value/100)*1000;}
-  function upB(){
-    var k=kOf(),pts=[],t;
-    for(t=0;t<=1000;t+=5)pts.push({x:t,y:20*Math.exp(-k*t)});
-    $('rhv').textContent=$('rh').value+' %';
-    $('kv').textContent=k.toExponential(2)+' /h';
-    $('e1000').textContent=(20*Math.exp(-k*1000)).toFixed(1)+' %';
-    if(ch.b){ch.b.data.datasets[0].data=pts;ch.b.update('none');}
-  }
-  /* ---- C: Techno-economic break-even ---- */
-  function upC(){
-    var mw=+$('mw').value,pr=+$('pr').value,es=+$('es').value,cum=-11000000,cf=[],rv=[],be=null,y;
-    for(y=1;y<=10;y++){
-      var prod=mw*(1+0.02*(y-1)),price=pr+0.01*(y-1),rev=prod*price*1000000,opex=4100000*Math.pow(1+es/100,y-1);
-      cum+=rev-opex;cf.push({x:y,y:cum});rv.push({x:y,y:rev});
-      if(be===null&&cum>0)be=y;
-    }
-    $('mwv').textContent=mw+' MW/yr';$('prv').textContent='$'+pr.toFixed(2)+'/Wp';$('esv').textContent=es+' %';
-    $('be').innerHTML=be?'Break-even year: <span>Year '+be+'</span>':'Break-even: <span>not reached within 10 years</span>';
-    if(ch.c){ch.c.data.datasets[0].data=cf;ch.c.data.datasets[1].data=rv;ch.c.update('none');}
-  }
-
-  /* Build (or rebuild after a theme change) all three charts */
-  function build(){
-    var teal=css('--teal'),txt=css('--text'),k;
-    for(k in ch){ch[k].destroy();}
-    var cur=[];for(var e=1;e<=2.301;e+=0.01)cur.push({x:+e.toFixed(2),y:pce(e)});
-    ch.a=new Chart($('cA'),{type:'line',data:{datasets:[
-      {label:'SQ limit (%)',data:cur,borderColor:teal,borderWidth:2.5,pointRadius:0},
-      {label:'Your material',data:[],showLine:false,pointRadius:8,pointBackgroundColor:txt,pointBorderColor:teal,pointBorderWidth:3}]},
-      options:opts('Bandgap (eV)','Efficiency (%)',[1,2.3],[0,35])});
-    ch.b=new Chart($('cB'),{type:'line',data:{datasets:[{label:'Efficiency (%)',data:[],borderColor:teal,borderWidth:2.5,pointRadius:0}]},
-      options:opts('Time (hours)','Efficiency (%)',[0,1000],[0,20])});
-    ch.c=new Chart($('cC'),{type:'line',data:{datasets:[
-      {label:'Cumulative cash flow',data:[],borderColor:teal,backgroundColor:teal,borderWidth:2.5,pointRadius:4},
-      {label:'Revenue',data:[],borderColor:'#F59E0B',backgroundColor:'#F59E0B',borderWidth:2,pointRadius:3}]},
-      options:opts('Year','USD (millions)',[1,10,1],[-12000000,8000000],function(v){return (v/1e6)+'M';})});
-    upA();upB();upC();
-  }
-
-  /* Theme toggle (shares the setting with the homepage) */
+(function(){
+  var root=document.documentElement,tb=document.getElementById('theme');
   function setT(t){root.setAttribute('data-theme',t);tb.textContent=t==='dark'?'Light':'Dark';}
-  var sv=null;try{sv=localStorage.getItem('theme');}catch(err){}
+  var sv=null;try{sv=localStorage.getItem('theme');}catch(e){}
   setT(sv||'dark');
   tb.addEventListener('click',function(){
     var n=root.getAttribute('data-theme')==='dark'?'light':'dark';
-    setT(n);try{localStorage.setItem('theme',n);}catch(err){}
-    build();
+    setT(n);try{localStorage.setItem('theme',n);}catch(e){}
   });
-
-  ['x'].forEach(function(i){$(i).addEventListener('input',upA);});
-  ['enc','rh'].forEach(function(i){$(i).addEventListener('input',upB);});
-  ['mw','pr','es'].forEach(function(i){$(i).addEventListener('input',upC);});
-  build();
-});
+})();
 </script>
 </body>
 </html>
