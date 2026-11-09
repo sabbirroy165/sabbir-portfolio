@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications · Sabbir Mahmud</title>
+<meta name="description" content="Publications by Sabbir Mahmud: a review on chitosan-based hydrogels for chromium (VI) removal and a book chapter on hydrogen generation materials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#040707; --surface:#0A1514; --line:#17332F; --text:#EAF7F5; --muted:#8FB5B0;
+  --teal:#2DD4BF; --soft:rgba(45,212,191,.14); --on:#031412;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif; --body:"Public Sans","Segoe UI",system-ui,sans-serif;
+}
+:root[data-theme="light"]{
+  --bg:#FFFFFF; --surface:#F0FAF8; --line:#CBE8E3; --text:#06201D; --muted:#3F6B66;
+  --teal:#0D9488; --soft:rgba(13,148,136,.12); --on:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.7 var(--body);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;flex-wrap:wrap}
+.brand{font:800 1.1rem var(--display);text-decoration:none;color:var(--teal)}
+nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--text);border-color:var(--teal)}
+#theme{background:var(--soft);border:1px solid var(--teal);color:var(--text);border-radius:999px;padding:5px 14px;font:600 .85rem var(--body);cursor:pointer}
+.hero{padding:60px 0 28px}
+h1{font:800 clamp(2rem,5vw,3.2rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 12px}
+.lead{color:var(--muted);max-width:40em;margin:0 0 14px}
+.back{display:inline-block;color:var(--muted);text-decoration:none;font-weight:500}
+.back:hover{color:var(--teal)}
+.pub{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 24px}
+.badge{display:inline-block;font-size:.8rem;font-weight:600;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:2px 12px;margin-bottom:14px}
+.pub h2{font:800 1.5rem/1.25 var(--display);margin:0 0 10px;letter-spacing:-.01em}
+.authors{margin:0 0 4px;color:var(--muted);font-size:.98rem}
+.authors b{color:var(--text)}
+.cite{margin:0 0 18px;color:var(--muted);font-size:.95rem}
+.ph{color:var(--muted);font-style:italic}
+.lbl{font:700 .95rem var(--display);color:var(--teal);margin:18px 0 6px}
+.pub p{margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);font-size:.88rem;font-weight:500}
+.chips.role span{border-color:var(--teal)}
+.btn{display:inline-block;margin-top:20px;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;background:var(--teal);color:var(--on);border:1px solid var(--teal);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 4px var(--soft)}
+footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;margin-top:30px}
+@media (max-width:600px){.pub{padding:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">Sabbir Mahmud</a>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="#review">Review article</a>
+      <a href="#chapter">Book chapter</a>
+      <button id="theme" type="button" aria-label="Switch between dark and light theme">Light</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Publications</h1>
+      <p class="lead">Peer-reviewed work on materials for water treatment and hydrogen generation, with my role in each.</p>
+      <a class="back" href="index.html">← Back to portfolio</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="pub" id="review">
+      <span class="badge">Review article · 2026</span>
+      <h2>Chitosan-based hydrogels for chromium (VI) removal from wastewater: Progress and perspectives</h2>
+      <!-- Replace the placeholder below with the full author list, in the printed order, with your name in <b></b> -->
+      <p class="authors"><span class="ph">[Add the full author list here]</span></p>
+      <p class="cite">Materials Today Communications, 2026. DOI: 10.1016/j.mtcomm.2026.116074</p>
+
+      <div class="lbl">My contribution</div>
+      <div class="chips role">
+        <span>Writing – original draft</span><span>Writing – review &amp; editing</span><span>Methodology</span><span>Investigation</span><span>Formal analysis</span><span>Visualization</span><span>Software</span>
+      </div>
+      <p style="margin-top:12px">I wrote the original draft and helped review and edit the paper. I also designed the methodology, carried out the investigation and formal analysis, and produced the visualizations and software.</p>
+
+      <div class="lbl">About the paper</div>
+      <p>A review of progress in using chitosan-based hydrogels to remove toxic chromium (VI) from wastewater, together with the outlook for future work.</p>
+
+      <div class="lbl">Keywords</div>
+      <div class="chips"><span>Chitosan</span><span>Hydrogels</span><span>Chromium (VI)</span><span>Wastewater treatment</span></div>
+
+      <a class="btn" href="https://doi.org/10.1016/j.mtcomm.2026.116074" target="_blank" rel="noopener">Read the publication</a>
+    </article>
+
+    <article class="pub" id="chapter">
+      <span class="badge">Book chapter · 2025</span>
+      <h2>Novel materials for hydrogen generation in contaminated water</h2>
+      <p class="authors">Shakib Hasan Nirob, <b>Sabbir Mahmud</b>, Nazmus Sakib, Taslim Ur Rashid</p>
+      <p class="cite">Chapter 13 in <i>Accelerating the Transition to a Hydrogen Economy: Achieving Carbon Neutrality</i>. Elsevier.</p>
+
+      <div class="lbl">My contribution</div>
+      <p>I contributed to writing and to reviewing and editing the chapter, and helped with the investigation and visualization behind it.</p>
+
+      <div class="lbl">About the chapter</div>
+      <p>The chapter looks at materials that can produce hydrogen while also dealing with contaminated water, linking clean energy production with water treatment.</p>
+
+      <div class="lbl">Keywords</div>
+      <div class="chips"><span>Hydrogen generation</span><span>Novel materials</span><span>Contaminated water</span></div>
+
+      <!-- When you have the publisher link, add: <a class="btn" href="PASTE-LINK-HERE" target="_blank" rel="noopener">View the book</a> -->
+    </article>
+  </div>
+</main>
+
+<footer><div class="wrap">© 2026 Sabbir Mahmud</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement,tb=document.getElementById('theme');
+  function setT(t){root.setAttribute('data-theme',t);tb.textContent=t==='dark'?'Light':'Dark';}
+  var sv=null;try{sv=localStorage.getItem('theme');}catch(e){}
+  setT(sv||'dark');
+  tb.addEventListener('click',function(){
+    var n=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    setT(n);try{localStorage.setItem('theme',n);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
